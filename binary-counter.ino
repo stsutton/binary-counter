@@ -4,7 +4,7 @@ Binary Counter
 Created by Sterling Sutton on September 17th, 2023
 */
 
-int ledPins[] = { 9, 8, 7, 6, 5, 4, 3, 2 };
+int ledPins[] = { 53, 52, 51, 50, 49, 48, 47, 46, 29, 28, 27, 26, 25, 24, 23, 22 };
 int numLedPins = sizeof(ledPins) / sizeof(ledPins[0]);  // Get length of ledPins[]
 int count = 0;
 
@@ -15,9 +15,9 @@ void setup() {
 }
 
 void loop() {
-  int lastPlaceValue = 1;
+  long lastPlaceValue = 1;
   for (int i = 0; i < numLedPins; i++) {
-  int placeValue = int_pow(2, i + 1);
+  long placeValue = long_int_pow(2, i + 1);
     
   if (count % placeValue > lastPlaceValue - 1) {
     digitalWrite(ledPins[i], HIGH);
@@ -28,13 +28,13 @@ void loop() {
 
   lastPlaceValue = placeValue;
   }
-  delay(1000);
+  delay(10);
   count++;
 }
 
-int int_pow(int base, int exp) {
+long long_int_pow(int base, int exp) {
   if (exp > 0) {
-    return base * int_pow(base, exp - 1);
+    return base * long_int_pow(base, exp - 1);
   }
   else {
     return 1;
