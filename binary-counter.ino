@@ -28,7 +28,7 @@ void loop() {
 
   lastPlaceValue = placeValue;
   }
-  delay(10);
+  delay(1000);
   count++;
 }
 
